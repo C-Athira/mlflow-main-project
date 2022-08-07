@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     # Read the wine-quality csv file (make sure you're running this from the root of MLflow!)
     dataset_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Churn_Data_Final.csv")
-    data = pd.read_csv(dataset_path)
+    Churn_Data_01 = pd.read_csv(dataset_path)
 
     # Independent variable
     X = Churn_Data_01.drop(['Churn'], axis=1)
