@@ -57,6 +57,10 @@ if __name__ == "__main__":
     learning_rate = float(sys.argv[1]) if len(sys.argv) > 2 else 0.5
     max_leaf_nodes = int(sys.argv[2]) if len(sys.argv) > 3 else 0.5
     n_estimators = int(sys.argv[3]) if len(sys.argv) > 4 else 0.5
+    
+    max_leaf_nodes = int(max_leaf_nodes)
+    n_estimators = int(n_estimators)
+    
 
     with mlflow.start_run():
         GBRModel = GradientBoostingRegressor(learning_rate=learning_rate, max_leaf_nodes=max_leaf_nodes, n_estimators=n_estimators)
