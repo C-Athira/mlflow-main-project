@@ -9,4 +9,4 @@ entry_points:
       learning_rate: {type: float, default: 0.1}
       max_leaf_nodes: {type: float, default: 2}
       n_estimators: {type: float, default: 100}
-    command: "python main.py --criterion {criterion} --learning_rate {learning_rate} --max_leaf_nodes {max_leaf_nodes} --n_estimators {n_estimators}"
+    command: "python main.py {criterion} {learning_rate} {max_leaf_nodes} {n_estimators}"

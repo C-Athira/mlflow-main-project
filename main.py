@@ -25,12 +25,12 @@ if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     np.random.seed(40)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--criterion")
-    parser.add_argument("--learning_rate")
-    parser.add_argument("--max_leaf_nodes")
-    parser.add_argument("--n_estimators")
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("--criterion")
+    # parser.add_argument("--learning_rate")
+    # parser.add_argument("--max_leaf_nodes")
+    # parser.add_argument("--n_estimators")
+    # args = parser.parse_args()
 
     # Read the wine-quality csv file (make sure you're running this from the root of MLflow!)
     dataset_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Churn_Data_Final.csv")
@@ -48,10 +48,15 @@ if __name__ == "__main__":
     scaler = StandardScaler().fit(X_train)
     X_train_scaled = scaler.transform(X_train)
 
-    criterion = object(args.criterion)
-    learning_rate = float(args.learning_rate)
-    max_leaf_nodes = int(args.max_leaf_nodes)
-    n_estimators = int(args.n_estimators)
+    # criterion = object(args.criterion)
+    # learning_rate = float(args.learning_rate)
+    # max_leaf_nodes = int(args.max_leaf_nodes)
+    # n_estimators = int(args.n_estimators)
+    
+    criterion = object(sys.argv[1]) if len(sys.argv) > 1 else 0.5
+    learning_rate = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
+    max_leaf_nodes = int(sys.argv[3]) if len(sys.argv) > 3 else 0.5
+    n_estimators = int(sys.argv[4]) if len(sys.argv) > 4 else 0.5
 
     with mlflow.start_run():
         GBRModel = GradientBoostingRegressor(criterion=criterion, learning_rate=learning_rate, max_leaf_nodes=max_leaf_nodes, n_estimators=n_estimators)
