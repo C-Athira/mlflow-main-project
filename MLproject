@@ -5,8 +5,7 @@ conda_env: conda.yaml
 entry_points:
   main:
     parameters:
-      criterion: {type: string, default: friedman_mse}
       learning_rate: {type: float, default: 0.1}
       max_leaf_nodes: {type: float, default: 2}
       n_estimators: {type: float, default: 100}
-    command: "python main.py {criterion} {learning_rate} {max_leaf_nodes} {n_estimators}"
+    command: "python main.py {learning_rate} {max_leaf_nodes} {n_estimators}"
