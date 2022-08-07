@@ -47,6 +47,7 @@ if __name__ == "__main__":
     # Scalining training data sets
     scaler = StandardScaler().fit(X_train)
     X_train_scaled = scaler.transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
 
     # criterion = object(args.criterion)
     # learning_rate = float(args.learning_rate)
