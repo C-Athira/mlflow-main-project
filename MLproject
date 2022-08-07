@@ -6,6 +6,6 @@ entry_points:
   main:
     parameters:
       learning_rate: {type: float, default: 0.1}
-      max_leaf_nodes: {type: float, default: 2}
-      n_estimators: {type: float, default: 100}
+      max_leaf_nodes: {type: int, default: 2}
+      n_estimators: {type: int, default: 100}
     command: "python main.py {learning_rate} {max_leaf_nodes} {n_estimators}"
